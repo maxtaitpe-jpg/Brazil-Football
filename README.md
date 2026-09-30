@@ -1,5 +1,5 @@
 # Brazil-Football
-<p>Brazil's All-Time XI:</p>
+<p>Brazil's All-Time XI:</>
 <ul>
     <li>GK: Taffarel</li>
     <li>DF: Cafu, Lúcio, Aldair, Roberto Carlos</li>
