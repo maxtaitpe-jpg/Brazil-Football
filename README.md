@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Basketball All-Time Starting Five</title>
+    <title>Brazil's All-Time XI (4-3-3)</title>
 
     <style>
         body {
@@ -12,37 +12,22 @@
             text-align: center;
         }
 
-        /* 籃球場範圍（模擬半場或戰術板：上方外線，下方禁區） */
+        /* 4-3-3 球場範圍（無顏色，僅用黑線邊框） */
         .pitch {
             border: 2px solid #000;
-            max-width: 500px;
-            height: 450px;
+            max-width: 650px;
             margin: 20px auto;
-            padding: 20px;
+            padding: 30px 10px;
             display: flex;
             flex-direction: column;
-            justify-content: space-between;
-            position: relative;
+            gap: 35px;
         }
 
-        /* 籃球場中線裝飾（一條橫虛線，營造球場感） */
-        .pitch::after {
-            content: "";
-            position: absolute;
-            top: 50%;
-            left: 0;
-            width: 100%;
-            border-top: 1px dashed #ccc;
-            z-index: 0;
-        }
-
-        /* 每一條戰術線 */
+        /* 每條線（前場、中場、後場、門將）排列 */
         .line {
             display: flex;
             justify-content: space-around;
             align-items: center;
-            position: relative;
-            z-index: 1;
         }
 
         /* 球員按鈕（純黑白外框） */
@@ -52,18 +37,6 @@
             border: 1px solid #000;
             padding: 8px 12px;
             cursor: pointer;
-        }
-
-        /* 陣型下方的影片容器 */
-        .main-video {
-            margin: 30px auto;
-            max-width: 560px;
-        }
-
-        .main-video iframe {
-            width: 100%;
-            height: 315px;
-            border: none;
         }
 
         /* 彈出視窗背景 */
@@ -86,7 +59,7 @@
             border: 1px solid #000;
             padding: 20px;
             width: 80%;
-            max-width: 400px;
+            max-width: 450px;
             text-align: left;
             position: relative;
         }
@@ -99,36 +72,59 @@
             font-size: 20px;
             cursor: pointer;
         }
+
+        /* 響應式影片容器 */
+        .video-container {
+            margin-top: 15px;
+            position: relative;
+            padding-bottom: 56.25%; /* 16:9 比例 */
+            height: 0;
+            overflow: hidden;
+        }
+
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
     </style>
 </head>
 <body>
 
-    <h1>Basketball All-Time Starting Five</h1>
+    <h1>Brazil's All-Time XI (4-3-3)</h1>
     <p>點擊球員查看簡介</p>
 
-    <!-- 籃球場陣型排版 -->
+    <!-- 4-3-3 陣型 -->
     <div class="pitch">
-        <!-- 頂端外線：控衛 (PG) 與 得分後衛 (SG) -->
+        <!-- 前鋒 (FW) -->
         <div class="line">
-            <button class="player-btn" onclick="showInfo('Magic Johnson', '32 / PG (控球後衛)', '1979–1991, 1996', '5次總冠軍、3次FMVP、3次MVP', '歷史最佳控衛。以充滿想像力的傳球視野與 206 公分的身高主宰全場。')">32. Magic Johnson (PG)</button>
-            <button class="player-btn" onclick="showInfo('Allen Iverson', '3 / SG (得分後衛)', '1996–2010', '例行賽 MVP、4次得分王', '「戰神」。擁有極致的運球過人和無解的得分能力，以小搏大的精神象徵。')">3. Allen Iverson (SG)</button>
+            <button class="player-btn" onclick="showInfo('Ronaldinho', '11 / LW (左翼)', '1999–2013', '2002 世界盃冠軍', '「球場舞者」。將桑巴足球的靈巧、花式盤帶與創造力展現得淋漓盡致。')">11. Ronaldinho</button>
+            <button class="player-btn" onclick="showInfo('Ronaldo', '9 / ST (中鋒)', '1994–2011', '1994, 2002 世界盃冠軍', '「外星人」。世界盃累積 15 顆進球，具備極致的爆發力與速度。')">9. Ronaldo</button>
+            <button class="player-btn" onclick="showInfo('Pelé', '10 / RW (右翼)', '1957–1971', '1958, 1962, 1970 世界盃冠軍', '足球史上唯一的「球王」，生涯奪得三屆世界盃冠軍。')">10. Pelé</button>
         </div>
 
-        <!-- 中間鋒線：小前鋒 (SF) -->
+        <!-- 中場 (MF) -->
         <div class="line">
-            <button class="player-btn" onclick="showInfo('LeBron James', '23 / SF (小前鋒)', '2003–現役', '4次總冠軍、4次FMVP、4次MVP', '「小皇帝」。擁有歷史級的身體素質、全能數據與統治力，聯盟常青樹。')">23. LeBron James (SF)</button>
+            <button class="player-btn" onclick="showInfo('Zico', '8 / AM (攻擊中場)', '1976–1986', '1978 世界盃季軍', '「白貝利」。擁有極致的盤帶能力、視野與恐怖的自由球進球率。')">8. Zico</button>
+            <button class="player-btn" onclick="showInfo('Didi', '6 / DM (防守中場)', '1952–1962', '1958, 1962 世界盃冠軍', '1958 年世界盃最佳球員，「落葉球」發明者，大腦級的中場大師。')">6. Didi</button>
+            <button class="player-btn" onclick="showInfo('Rivaldo', '10 / AM (進攻中場)', '1993–2003', '2002 世界盃冠軍', '1999 年金球獎得主，左腳技術無解，遠射與倒掛金鉤能力極強。')">10. Rivaldo</button>
         </div>
 
-        <!-- 底部禁區：大前鋒 (PF) 與 中鋒 (C) -->
+        <!-- 後衛 (DF) -->
         <div class="line">
-            <button class="player-btn" onclick="showInfo('Tim Duncan', '21 / PF (大前鋒)', '1997–2016', '5次總冠軍、3次FMVP、2次MVP', '「石佛」。歷史第一大前鋒，球風穩健無華，攻守俱佳的馬刺隊魂。')">21. Tim Duncan (PF)</button>
-            <button class="player-btn" onclick="showInfo('Hakeem Olajuwon', '34 / C (中鋒)', '1984–2002', '2次總冠軍、2次FMVP、1次MVP', '「大夢」。擁有夢幻步伐（Dream Shake），攻防兩端極具統治力的頂級中鋒。')">34. Hakeem Olajuwon (C)</button>
+            <button class="player-btn" onclick="showInfo('Roberto Carlos', '6 / LB (左後衛)', '1992–2006', '2002 世界盃冠軍', '以恐怖的爆發力與標誌性的「香蕉球」重砲自由球聞名。')">6. R. Carlos</button>
+            <button class="player-btn" onclick="showInfo('Lúcio', '3 / CB (中後衛)', '2000–2011', '2002 世界盃冠軍', '身體素質強悍、空中對抗能力優異，且具備帶球向前突破的能力。')">3. Lúcio</button>
+            <button class="player-btn" onclick="showInfo('Aldair', '4 / CB (中後衛)', '1989–2000', '1994 世界盃冠軍', '防守意識極佳，判斷準確且具備出色的出球技術。')">4. Aldair</button>
+            <button class="player-btn" onclick="showInfo('Cafu', '2 / RB (右後衛)', '1990–2006', '1994, 2002 世界盃冠軍', '隊史出場紀錄保持人，體能充沛、助攻能力極強的現代右後衛始祖。')">2. Cafu</button>
         </div>
-    </div>
 
-    <!-- 陣型正下方的影片區塊 -->
-    <div class="main-video">
-        <iframe src="https://www.youtube.com/embed/rn0ThwsRGmU?si=63WAoaZnpqhbeIsj" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        <!-- 門將 (GK) -->
+        <div class="line">
+            <button class="player-btn" onclick="showInfo('Taffarel', '1 / GK (門將)', '1987–1998', '1994 世界盃冠軍', '巴西歷史上最穩定的門將，門前反應極快且擅長撲救十二碼點球。')">1. Taffarel</button>
+        </div>
     </div>
 
     <!-- 點擊後跳出的無顏色彈窗 -->
@@ -137,10 +133,15 @@
             <span class="close-btn" onclick="closeInfo()">&times;</span>
             <h2 id="modalName" style="margin-top:0;">球員名稱</h2>
             <p><strong>位置/背號：</strong> <span id="modalPos"></span></p>
-            <p><strong>活躍時期：</strong> <span id="modalYears"></span></p>
-            <p><strong>生涯成就：</strong> <span id="modalHonor"></span></p>
+            <p><strong>效力時期：</strong> <span id="modalYears"></span></p>
+            <p><strong>國家隊榮譽：</strong> <span id="modalHonor"></span></p>
             <hr>
             <p id="modalDesc">詳細介紹...</p>
+
+            <!-- 嵌入影片容器 -->
+            <div class="video-container">
+                <iframe src="https://www.youtube.com/embed/rn0ThwsRGmU?si=63WAoaZnpqhbeIsj" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            </div>
         </div>
     </div>
 
